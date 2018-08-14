@@ -2,6 +2,7 @@
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const path = require('path');
 const chalk = require('chalk');
 
 function writeFile(data) {
@@ -9,7 +10,7 @@ function writeFile(data) {
     module.exports = ${JSON.stringify(data)}
   `;
   try {
-    fs.writeFileSync('/Users/kyle/Dropbox/CELTICS/projects/drupal/index.js', output);
+    fs.writeFileSync(path.resolve(__dirname, '../index.js'), output);
     console.log(chalk.green(`File was saved.`));
   } catch (err) {
     throw new Error(`at writing file:\n${err}\n`);
